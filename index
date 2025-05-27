@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Imanol Salinero Spitale - Producción Audiovisual</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Source Code Pro', monospace;
@@ -24,7 +24,7 @@
 
   <!-- Logo -->
   <section id="inicio" class="flex justify-center my-6">
-    <img src="img/logo.png" alt="Logo Imanol Salinero Spitale" class="max-w-xs sm:max-w-sm">
+    <img src="img/logo.png" alt="Logo Imanol Salinero Spitale" class="max-w-xs sm:max-w-sm" />
   </section>
 
   <!-- Título y descripción -->
@@ -38,45 +38,44 @@
   </section>
 
   <!-- Trabajos en Cine -->
- <section class="my-10">
-  <h2 class="text-center text-xl font-semibold mb-4">Trabajos en Cine</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 justify-center">
-    <a href="https://www.youtube.com/watch?v=9yp4tHdHjuE&ab_channel=BobadillaProductions" target="_blank">
-      <img src="img/cine1.jpg" alt="Cine 1" class="w-full rounded shadow hover:opacity-80">
-    </a>
-    <a href="https://www.youtube.com/watch?v=KNXPRVad4uk&pp=ygUUbGEgY3VtYnJlIHBvbGFyIGNpbmXSBwkJjQkBhyohjO8%3D" target="_blank">
-      <img src="img/cine2.jpg" alt="Cine 2" class="w-full rounded shadow hover:opacity-80">
-    </a>
-    <a href="https://www.youtube.com/watch?v=seLUU2iS0no&ab_channel=ElCarro" target="_blank">
-      <img src="img/cine3.jpg" alt="Cine 3" class="w-full rounded shadow hover:opacity-80">
-    </a>
-    <a href="https://vimeo.com/813717069" target="_blank">
-      <img src="img/cine4.jpg" alt="Cine 4" class="w-full rounded shadow hover:opacity-80">
-    </a>
-    <a href="https://www.youtube.com/watch?v=Ofl9AecfSfQ" target="_blank">
-      <img src="img/cine5.jpg" alt="Cine 5" class="w-full rounded shadow hover:opacity-80">
-    </a>
-    <a href="https://www.youtube.com/watch?v=rSmKl347Ktk&t=1s&ab_channel=TRESMARES" target="_blank">
-      <img src="img/cine6.jpg" alt="Cine 6" class="w-full rounded shadow hover:opacity-80">
-    </a>
-    <a href="https://www.youtube.com/watch?v=Vs8AX9dsOJE" target="_blank">
-      <img src="img/cine7.jpg" alt="Cine 7" class="w-full rounded shadow hover:opacity-80">
-    </a>
-    <a href="https://www.youtube.com/watch?v=acCKexISlmk" target="_blank">
-      <img src="img/cine8.jpg" alt="Cine 8" class="w-full rounded shadow hover:opacity-80">
-    </a>
-    <a href="https://www.youtube.com/watch?v=TyIvmPdl_ZM&ab_channel=C%C3%B3rdobaAcelera" target="_blank">
-      <img src="img/cine9.jpg" alt="Cine 9" class="w-full rounded shadow hover:opacity-80">
-    </a>
-  </div>
-</section>
-
+  <section class="my-10">
+    <h2 class="text-center text-xl font-semibold mb-4">Trabajos en Cine</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <a href="https://www.youtube.com/watch?v=9yp4tHdHjuE&ab_channel=BobadillaProductions" target="_blank" rel="noopener noreferrer">
+        <img src="img/cine1.jpg" alt="Cine 1" class="w-full rounded shadow hover:opacity-80" />
+      </a>
+      <a href="https://www.youtube.com/watch?v=KNXPRVad4uk&pp=ygUUbGEgY3VtYnJlIHBvbGFyIGNpbmXSBwkJjQkBhyohjO8%3D" target="_blank" rel="noopener noreferrer">
+        <img src="img/cine2.jpg" alt="Cine 2" class="w-full rounded shadow hover:opacity-80" />
+      </a>
+      <a href="https://www.youtube.com/watch?v=seLUU2iS0no&ab_channel=ElCarro" target="_blank" rel="noopener noreferrer">
+        <img src="img/cine3.jpg" alt="Cine 3" class="w-full rounded shadow hover:opacity-80" />
+      </a>
+      <a href="https://vimeo.com/813717069" target="_blank" rel="noopener noreferrer">
+        <img src="img/cine4.jpg" alt="Cine 4" class="w-full rounded shadow hover:opacity-80" />
+      </a>
+      <a href="https://www.youtube.com/watch?v=Ofl9AecfSfQ" target="_blank" rel="noopener noreferrer">
+        <img src="img/cine5.jpg" alt="Cine 5" class="w-full rounded shadow hover:opacity-80" />
+      </a>
+      <a href="https://www.youtube.com/watch?v=rSmKl347Ktk&t=1s&ab_channel=TRESMARES" target="_blank" rel="noopener noreferrer">
+        <img src="img/cine6.jpg" alt="Cine 6" class="w-full rounded shadow hover:opacity-80" />
+      </a>
+      <a href="https://www.youtube.com/watch?v=Vs8AX9dsOJE" target="_blank" rel="noopener noreferrer">
+        <img src="img/cine7.jpg" alt="Cine 7" class="w-full rounded shadow hover:opacity-80" />
+      </a>
+      <a href="https://www.youtube.com/watch?v=acCKexISlmk" target="_blank" rel="noopener noreferrer">
+        <img src="img/cine8.jpg" alt="Cine 8" class="w-full rounded shadow hover:opacity-80" />
+      </a>
+      <a href="https://www.youtube.com/watch?v=TyIvmPdl_ZM&ab_channel=C%C3%B3rdobaAcelera" target="_blank" rel="noopener noreferrer">
+        <img src="img/cine9.jpg" alt="Cine 9" class="w-full rounded shadow hover:opacity-80" />
+      </a>
+    </div>
+  </section>
 
   <!-- Trabajos en Publicidad -->
   <section class="my-10 border-t border-gray-300 pt-8">
     <h2 class="text-center text-xl font-semibold mb-4">Trabajos en Publicidad</h2>
     <div class="flex justify-center">
-      <img src="img/publicidad.jpg" alt="Trabajos en Publicidad" class="w-full max-w-5xl rounded shadow">
+      <img src="img/publicidad.jpg" alt="Trabajos en Publicidad" class="w-full max-w-5xl rounded shadow" />
     </div>
   </section>
 
@@ -84,7 +83,7 @@
   <section class="my-10 border-t border-gray-300 pt-8">
     <h2 class="text-center text-xl font-semibold mb-4">Trabajos en Videoclip</h2>
     <div class="flex justify-center">
-      <img src="img/videoclip.jpg" alt="Trabajos en Videoclip" class="w-full max-w-5xl rounded shadow">
+      <img src="img/videoclip.jpg" alt="Trabajos en Videoclip" class="w-full max-w-5xl rounded shadow" />
     </div>
   </section>
 
@@ -92,14 +91,27 @@
   <section class="text-center mt-14 mb-8">
     <h2 class="text-lg font-semibold mb-4">Redes Sociales</h2>
     <div class="flex justify-center space-x-6 text-3xl">
-      <a href="https://www.linkedin.com/in/imanol-salinero-spitale/" target="_blank" title="LinkedIn">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="w-8 h-8 fill-black hover:opacity-75">
+      <!-- LinkedIn SVG icon -->
+      <a href="https://www.linkedin.com/in/imanol-salinero-spitale/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="hover:opacity-75">
+        <svg class="w-8 h-8 fill-black" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <title>LinkedIn</title>
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.025-3.038-1.852-3.038-1.853 0-2.136 1.447-2.136 2.942v5.665H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 3.604 0 4.269 2.372 4.269 5.456v6.287zM5.337 7.433c-1.144 0-2.069-.926-2.069-2.068 0-1.145.925-2.07 2.069-2.07 1.143 0 2.069.925 2.069 2.07 0 1.142-.926 2.068-2.069 2.068zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .77 0 1.723v20.554C0 23.227.792 24 1.771 24h20.451c.98 0 1.778-.773 1.778-1.723V1.723C24 .77 23.203 0 22.225 0z"/>
+        </svg>
       </a>
-      <a href="https://wa.me/543516074183" target="_blank" title="WhatsApp">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8 fill-black hover:opacity-75">
+      <!-- WhatsApp SVG icon -->
+      <a href="https://wa.me/543516074183" target="_blank" rel="noopener noreferrer" title="WhatsApp" class="hover:opacity-75">
+        <svg class="w-8 h-8 fill-black" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <title>WhatsApp</title>
+          <path d="M20.52 3.48A11.833 11.833 0 0 0 12.11.07a11.98 11.98 0 0 0-9.87 17.04L.13 24l6.89-1.96a11.875 11.875 0 0 0 6.58 1.91h.01c6.58 0 11.95-5.37 11.95-12.01 0-3.2-1.26-6.21-3.48-8.46zM12 21.48a9.44 9.44 0 0 1-4.8-1.31l-.34-.2-4.1 1.16 1.16-4.02-.22-.34A9.45 9.45 0 1 1 12 21.48zm5.02-6.68c-.28-.14-1.64-.81-1.89-.91-.25-.1-.43-.14-.62.14s-.71.91-.87 1.1c-.16.18-.32.21-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.56.12-.12.27-.32.41-.48.14-.16.18-.28.28-.47.1-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.29 0 1.34.99 2.64 1.13 2.83.14.18 1.95 2.97 4.73 4.17.66.28 1.17.45 1.57.58.66.22 1.26.19 1.74.12.53-.07 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.12-.25-.18-.52-.32z"/>
+        </svg>
       </a>
     </div>
   </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 my-10">
+    © 2025 Imanol Salinero Spitale
+  </footer>
 
 </body>
 </html>
