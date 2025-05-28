@@ -18,9 +18,24 @@
     body {
       font-family: 'Source Code Pro', monospace;
     }
-    /* Clase para usar Martian Mono */
     .font-martian {
       font-family: 'Martian Mono', monospace;
+    }
+
+    /* Animación de deslizamiento izquierda a derecha */
+    @keyframes slide-in-left {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in-left {
+      animation: slide-in-left 1s ease-out forwards;
     }
   </style>
 </head>
@@ -57,7 +72,6 @@
   <section class="my-2 pt-8">
     <h2 class="text-center text-2xl font-bold mb-6 font-martian">Trabajos en Cine</h2>
 
-    <!-- Primera fila: cine1 a cine3 -->
     <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
       <a href="https://www.youtube.com/watch?v=9yp4tHdHjuE" target="_blank">
         <img src="img/cine1.jpg" alt="Cine 1" class="w-full rounded shadow hover:opacity-80">
@@ -70,7 +84,6 @@
       </a>
     </div>
 
-    <!-- Segunda fila: cine4 a cine6 -->
     <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
       <a href="https://vimeo.com/813717069" target="_blank">
         <img src="img/cine4.jpg" alt="Cine 4" class="w-full rounded shadow hover:opacity-80">
@@ -83,7 +96,6 @@
       </a>
     </div>
 
-    <!-- Tercera fila: cine7 a cine9 -->
     <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto">
       <a href="https://www.youtube.com/watch?v=Vs8AX9dsOJE" target="_blank">
         <img src="img/cine7.jpg" alt="Cine 7" class="w-full rounded shadow hover:opacity-80">
@@ -104,7 +116,6 @@
   <section class="my-2 pt-8">
     <h2 class="text-center text-2xl font-bold mb-6 font-martian">Trabajos en Publicidad</h2>
 
-    <!-- Primera fila: publicidad1 a publicidad3 -->
     <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
       <a href="https://www.youtube.com/watch?v=iX8aEeyzLhE&ab_channel=GobiernodelaProvinciadeC%C3%B3rdoba" target="_blank">
         <img src="img/publicidad1.jpg" alt="Publicidad 1" class="w-full rounded shadow hover:opacity-80">
@@ -117,7 +128,6 @@
       </a>
     </div>
 
-    <!-- Segunda fila: publicidad4 a publicidad6 -->
     <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto">
       <a href="https://www.youtube.com/watch?v=bHZ30jQbIR0&ab_channel=HacemosporNuestroPa%C3%ADs" target="_blank">
         <img src="img/publicidad5.jpg" alt="Publicidad 5" class="w-full rounded shadow hover:opacity-80">
@@ -147,12 +157,11 @@
     </div>
   </section>
 
-    <!-- Trabajos en Videoclip -->
+  <!-- Trabajos en Diseño Gráfico -->
   <section class="my-2 pt-8">
     <h2 class="text-center text-2xl font-bold mb-6 font-martian">Trabajos en Diseño Gráfico</h2>
     <div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
-        <img src="img/diseño1.jpg" alt="Diseño 1" class="w-full rounded shadow hover:opacity-80">
-     </a>
+      <img src="img/diseño1.jpg" alt="Diseño 1" class="w-full rounded shadow hover:opacity-80 slide-in-left">
     </div>
   </section>
 
