@@ -211,28 +211,31 @@
 <hr class="border-t border-gray-300 my-8" />
 
 
-<!-- Diseño Gráfico con imagen en loop -->
-<section class="my-10 max-w-6xl mx-auto">
-  <h2 class="text-center text-2xl font-bold mb-6 font-martian">Diseño Gráfico</h2>
-
-  <div class="relative h-48 overflow-hidden border border-gray-300 rounded bg-repeat-x bg-[url('img/diseño1.jpg')] bg-top animate-slideBackground"></div>
+<!-- Trabajos en Diseño Gráfico -->
+<section id="diseño" class="my-2 pt-8">
+  <h2 class="text-center text-2xl font-bold mb-6 font-martian">Trabajos en Diseño Gráfico</h2>
+  <div class="overflow-hidden-wrapper">
+    <div class="slide-loop-container">
+      <img src="img/diseño1.jpg" alt="Diseño 1" />
+      <img src="img/diseño1.jpg" alt="Diseño 1 duplicado" />
+    </div>
+  </div>
 </section>
 
-<style>
-  @keyframes slideBackground {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: -100% 0;
-    }
-  }
+<hr class="border-t border-gray-300 my-8" />
 
-  .animate-slideBackground {
-    animation: slideBackground 30s linear infinite;
-  }
-</style>
-
+<!-- Redes Sociales -->
+<section class="text-center mt-14 mb-8">
+  <h2 class="text-lg font-semibold mb-4">Redes Sociales</h2>
+  <div class="flex justify-center space-x-6 text-3xl">
+    <a href="https://www.linkedin.com/in/imanol-salinero-spitale/" target="_blank" title="LinkedIn">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="w-8 h-8 hover:opacity-75">
+    </a>
+    <a href="https://wa.me/543516074183" target="_blank" title="WhatsApp">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8 hover:opacity-75">
+    </a>
+  </div>
+</section>
 
 </body>
 </html>
