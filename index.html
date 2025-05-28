@@ -211,16 +211,28 @@
 <hr class="border-t border-gray-300 my-8" />
 
 
-<!-- Diseño Gráfico con imagen animada en loop -->
+<!-- Diseño Gráfico con imagen en loop -->
 <section class="my-10 max-w-6xl mx-auto">
   <h2 class="text-center text-2xl font-bold mb-6 font-martian">Diseño Gráfico</h2>
 
-  <div class="overflow-hidden border border-gray-300 rounded p-4 bg-gray-50">
-    <div class="slide-loop inline-block">
-      <img src="img/diseño1.jpg" alt="Diseño gráfico" class="h-40 object-contain inline-block" />
-    </div>
-  </div>
+  <div class="relative h-48 overflow-hidden border border-gray-300 rounded bg-repeat-x bg-[url('img/diseño1.jpg')] bg-top animate-slideBackground"></div>
 </section>
+
+<style>
+  @keyframes slideBackground {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  .animate-slideBackground {
+    animation: slideBackground 30s linear infinite;
+  }
+</style>
+
 
 </body>
 </html>
