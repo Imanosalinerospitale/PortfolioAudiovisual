@@ -5,62 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Imanol Salinero Spitale - Producción Audiovisual y Diseño Gráfico</title>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap" rel="stylesheet" />
 
   <style>
-    body {
-      font-family: 'Source Code Pro', monospace;
-    }
-    .font-martian {
-      font-family: 'Martian Mono', monospace;
-    }
-
-    /* Hover texto sobre imagen */
-    .group:hover .overlay {
-      opacity: 1;
-    }
-
-    /* Animación imagen en loop horizontal */
+    body { font-family: 'Source Code Pro', monospace; }
+    .font-martian { font-family: 'Martian Mono', monospace; }
+    .group:hover .overlay { opacity: 1; }
     @keyframes slide-left-loop {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
     }
-
-    .slide-loop {
-      animation: slide-left-loop 20s linear infinite;
-      will-change: transform;
-    }
+    .slide-loop { animation: slide-left-loop 20s linear infinite; will-change: transform; }
+    
+    /* Estilo para el botón de idioma activo */
+    .lang-btn.active { text-decoration: underline; font-weight: bold; color: #000; }
+    .lang-btn { color: #666; transition: all 0.3s; }
   </style>
 </head>
 <body class="bg-white text-black px-4 sm:px-8">
 
-  <!-- Menú Superior -->
   <header class="flex justify-between items-center py-4 text-sm">
     <nav class="space-x-6">
-      <a href="#inicio" class="hover:underline">inicio</a>
-      <a href="https://drive.google.com/file/d/1mj4kHYrMsSkVju7X1PdJfNrze0NyiQni/view?usp=sharing" target="_blank" class="hover:underline">reel</a>
-      <a href="https://drive.google.com/file/d/1GLv9exVbtQhN9yP5vS4qS8RU5BqmVHbg/view?usp=drive_link" target="_blank" class="hover:underline">cv</a>
+      <a href="#inicio" class="hover:underline" data-key="nav_inicio">inicio</a>
+      <a href="https://drive.google.com/file/d/1mj4kHYrMsSkVju7X1PdJfNrze0NyiQni/view?usp=sharing" target="_blank" class="hover:underline" data-key="nav_reel">reel</a>
+      <a href="https://drive.google.com/file/d/1GLv9exVbtQhN9yP5vS4qS8RU5BqmVHbg/view?usp=drive_link" target="_blank" class="hover:underline" data-key="nav_cv">cv</a>
     </nav>
+    
+    <div class="flex space-x-2 items-center border-l pl-4 border-gray-300">
+      <button onclick="changeLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
+      <span class="text-gray-300">|</span>
+      <button onclick="changeLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+    </div>
   </header>
 
-  <!-- Logo -->
   <section id="inicio" class="flex justify-center my-6">
     <img src="img/logo.png" alt="Logo Imanol Salinero Spitale" class="max-w-xs sm:max-w-sm" />
   </section>
 
-  <!-- Título y descripción -->
   <section class="text-center max-w-3xl mx-auto">
-    <h1 class="text-2xl sm:text-3xl font-bold mb-4">Producción Audiovisual</h1>
-    <p class="text-base sm:text-lg leading-relaxed text-gray-800">
+    <h1 class="text-2xl sm:text-3xl font-bold mb-4" data-key="main_title">Producción Audiovisual</h1>
+    <p class="text-base sm:text-lg leading-relaxed text-gray-800" data-key="main_desc">
       Más de 10 años de experiencia en producción audiovisual, especializado en el desarrollo, gestión y logística de proyectos de cine, videoclips y publicidad.
       He liderado y formado parte de equipos creativos y técnicos en producciones independientes, así como en proyectos para plataformas internacionales como Netflix, Amazon Prime, Televisión Pública y Canal Encuentro.
       Además, he participado en la producción de campañas publicitarias de alto impacto, transmitidas en televisión y redes.
@@ -70,95 +57,88 @@
 
   <hr class="border-t border-gray-300 my-8" />
 
-   <!-- Trabajos en Cine -->
   <section class="my-2 pt-8">
-    <h2 class="text-center text-2xl font-bold mb-6 font-martian">Trabajos en Cine</h2>
-    <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
-      <!-- cine1 -->
+    <h2 class="text-center text-2xl font-bold mb-6 font-martian" data-key="sec_cine">Trabajos en Cine</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
+      
       <a href="https://www.youtube.com/watch?v=9yp4tHdHjuE" target="_blank" class="group relative block overflow-hidden rounded shadow">
-        <img src="img/cine1.jpg" alt="Un Susurro Invocó mi Nombre (2024)" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <img src="img/cine1.jpg" alt="Un Susurro Invocó mi Nombre" class="w-full transition-transform duration-300 group-hover:scale-110" />
         <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
           <p>Un Susurro Invocó mi Nombre (2024)</p>
           <p>Dir: Emilia Cotella - John Mathis</p>
-          <p>Rol: Jefe de Producción</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_jefe">Jefe de Producción</span></p>
         </div>
       </a>
-      <!-- cine2 -->
+      
       <a href="https://www.youtube.com/watch?v=KNXPRVad4uk" target="_blank" class="group relative block overflow-hidden rounded shadow">
-        <img src="img/cine2.jpg" alt="La Cumbre (2024)" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <img src="img/cine2.jpg" alt="La Cumbre" class="w-full transition-transform duration-300 group-hover:scale-110" />
         <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
           <p>La Cumbre (2024)</p>
           <p>Dir: Leandro Naranjo - Santiago Zapata</p>
-          <p>Rol: Jefe de Producción</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_jefe">Jefe de Producción</span></p>
         </div>
       </a>
-      <!-- cine3 -->
+
       <a href="https://www.youtube.com/watch?v=seLUU2iS0no" target="_blank" class="group relative block overflow-hidden rounded shadow">
-        <img src="img/cine3.jpg" alt="La Zurda (2024)" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <img src="img/cine3.jpg" alt="La Zurda" class="w-full transition-transform duration-300 group-hover:scale-110" />
         <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
           <p>La Zurda (2024)</p>
           <p>Dir: Rosendo Ruiz</p>
-          <p>Rol: Ayudante de Producción</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_ayudante">Ayudante de Producción</span></p>
         </div>
       </a>
     </div>
 
-    <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
-      <!-- cine4 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
       <a href="https://vimeo.com/813717069" target="_blank" class="group relative block overflow-hidden rounded shadow">
-        <img src="img/cine4.jpg" alt="Te amo tanto que escribí una película para nunca enojarme con vos (2022)" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <img src="img/cine4.jpg" alt="Te amo tanto..." class="w-full transition-transform duration-300 group-hover:scale-110" />
         <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-          <p>Te amo tanto que escribí una película para nunca enojarme con vos (2022)</p>
+          <p data-key="peli_teamo">Te amo tanto que escribí una película para nunca enojarme con vos (2022)</p>
           <p>Dir: Rosario Gonzáles Leaniz - Alba Cravero</p>
-          <p>Rol: Jefe de Locaciones</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_locaciones">Jefe de Locaciones</span></p>
         </div>
       </a>
-      <!-- cine5 -->
       <a href="https://www.youtube.com/watch?v=Ofl9AecfSfQ" target="_blank" class="group relative block overflow-hidden rounded shadow">
-        <img src="img/cine5.jpg" alt="Norma (2023)" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <img src="img/cine5.jpg" alt="Norma" class="w-full transition-transform duration-300 group-hover:scale-110" />
         <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
           <p>Norma (2023)</p>
           <p>Dir: Santiago Giralt</p>
-          <p>Rol: Ayudante de Producción</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_ayudante">Ayudante de Producción</span></p>
         </div>
       </a>
-      <!-- cine6 -->
       <a href="https://www.youtube.com/watch?v=rSmKl347Ktk" target="_blank" class="group relative block overflow-hidden rounded shadow">
-        <img src="img/cine6.jpg" alt="La Pulpera (2023)" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <img src="img/cine6.jpg" alt="La Pulpera" class="w-full transition-transform duration-300 group-hover:scale-110" />
         <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
           <p>La Pulpera (2023)</p>
           <p>Dir: Mauricio Minotti</p>
-          <p>Rol: Ayudante de Producción</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_ayudante">Ayudante de Producción</span></p>
         </div>
       </a>
     </div>
 
-    <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto">
-      <!-- cine7 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
       <a href="https://www.youtube.com/watch?v=Vs8AX9dsOJE" target="_blank" class="group relative block overflow-hidden rounded shadow">
-        <img src="img/cine7.jpg" alt="Recursos Humanos (2022)" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <img src="img/cine7.jpg" alt="Recursos Humanos" class="w-full transition-transform duration-300 group-hover:scale-110" />
         <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-          <p>Recursos Humanos (2022)</p>
+          <p data-key="peli_recursos">Recursos Humanos (2022)</p>
           <p>Dir: Jesús Magaña Vazquez</p>
-          <p>Rol: Meritorio de Producción</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_meritorio">Meritorio de Producción</span></p>
         </div>
       </a>
-      <!-- cine8 -->
       <a href="https://www.youtube.com/watch?v=acCKexISlmk" target="_blank" class="group relative block overflow-hidden rounded shadow">
-        <img src="img/cine8.jpg" alt="El Casero (2023)" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <img src="img/cine8.jpg" alt="El Casero" class="w-full transition-transform duration-300 group-hover:scale-110" />
         <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
           <p>El Casero (2023)</p>
           <p>Dir: Matías Luchessi</p>
-          <p>Rol: Ayudante de Producción</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_ayudante">Ayudante de Producción</span></p>
         </div>
       </a>
-      <!-- cine9 -->
       <a href="https://www.youtube.com/watch?v=8oDYkO-hI7c" target="_blank" class="group relative block overflow-hidden rounded shadow">
-        <img src="img/cine9.jpg" alt="Ciudades de Refugio (2024)" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <img src="img/cine9.jpg" alt="Ciudades de Refugio" class="w-full transition-transform duration-300 group-hover:scale-110" />
         <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
           <p>Ciudades de Refugio (2024)</p>
           <p>Dir: Rodrigo Fernandez Engler</p>
-          <p>Rol: Asistente de Producción</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_asistente">Asistente de Producción</span></p>
         </div>
       </a>
     </div>
@@ -166,123 +146,92 @@
 
   <hr class="border-t border-gray-300 my-8" />
 
-<!-- Trabajos en Publicidad -->
-<section class="my-2 pt-8">
-  <h2 class="text-center text-2xl font-bold mb-6 font-martian">Trabajos en Publicidad</h2>
+  <section class="my-2 pt-8">
+    <h2 class="text-center text-2xl font-bold mb-6 font-martian" data-key="sec_pub">Trabajos en Publicidad</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
+      <a href="https://www.youtube.com/watch?v=iX8aEeyzLhE" target="_blank" class="group relative block overflow-hidden rounded shadow">
+        <img src="img/publicidad1.jpg" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
+          <p data-key="pub1">Hay un país donde podemos vivir distinto (2023)</p>
+          <p>Dir: Martín Donozo</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_asist_loc">Asistente de Locaciones</span></p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=hHJDDYw5cQI" target="_blank" class="group relative block overflow-hidden rounded shadow">
+        <img src="img/publicidad2.jpg" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
+          <p data-key="pub2">El valor de dar respuesta (2024)</p>
+          <p>Dir: Pablo Cecci</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_asistente">Asistente de Producción</span></p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=LxxwDhlDJpU" target="_blank" class="group relative block overflow-hidden rounded shadow">
+        <img src="img/publicidad3.jpg" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
+          <p>Levantados (2023)</p>
+          <p>Dir: Pablo Cecci</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_asistente">Asistente de Producción</span></p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+      <a href="https://www.instagram.com/reel/DK-JYWORQNz/" target="_blank" class="group relative block overflow-hidden rounded shadow">
+        <img src="img/Publicidad7.jpg" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
+          <p data-key="pub7">Avioncito (2024)</p>
+          <p>Dir: Pablo Brusa</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_asistente">Asistente de Producción</span></p>
+        </div>
+      </a>
+      <a href="https://youtu.be/qM2MLvUrOfk" target="_blank" class="group relative block overflow-hidden rounded shadow">
+        <img src="img/Publicidad8.jpg" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
+          <p data-key="pub8">Te Dio Calor? (2025)</p>
+          <p>Dir: Pablo Cecci</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_asistente">Asistente de Producción</span></p>
+        </div>
+      </a>
+      <a href="https://youtu.be/DuFt5EWgwuw" target="_blank" class="group relative block overflow-hidden rounded shadow">
+        <img src="img/Publicidad9.jpg" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
+          <p data-key="pub9">Juan es Córdoba (2025)</p>
+          <p>Dir: Pablo Cecci</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_asistente">Asistente de Producción</span></p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <hr class="border-t border-gray-300 my-8" />
   
-  <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
-    <a href="https://www.youtube.com/watch?v=iX8aEeyzLhE" target="_blank" class="group relative block overflow-hidden rounded shadow">
-      <img src="img/publicidad1.jpg" alt="Hay un país donde podemos vivir distinto" class="w-full transition-transform duration-300 group-hover:scale-110" />
-      <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-        <p>Hay un país donde podemos vivir distinto (2023)</p>
-        <p>Dir: Martín Donozo</p>
-        <p>Rol: Asistente de Locaciones</p>
-      </div>
-    </a>
-    <a href="https://www.youtube.com/watch?v=hHJDDYw5cQI" target="_blank" class="group relative block overflow-hidden rounded shadow">
-      <img src="img/publicidad2.jpg" alt="El valor de dar respuesta" class="w-full transition-transform duration-300 group-hover:scale-110" />
-      <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-        <p>El valor de dar respuesta (2024)</p>
-        <p>Dir: Pablo Cecci</p>
-        <p>Rol: Asistente de Producción</p>
-      </div>
-    </a>
-    <a href="https://www.youtube.com/watch?v=LxxwDhlDJpU" target="_blank" class="group relative block overflow-hidden rounded shadow">
-      <img src="img/publicidad3.jpg" alt="Levantados" class="w-full transition-transform duration-300 group-hover:scale-110" />
-      <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-        <p>Levantados (2023)</p>
-        <p>Dir: Pablo Cecci</p>
-        <p>Rol: Asistente de Producción</p>
-      </div>
-    </a>
-  </div>
+  <section class="my-2 pt-8">
+    <h2 class="text-center text-2xl font-bold mb-6 font-martian" data-key="sec_video">Trabajos en Videoclip</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+      <a href="https://www.youtube.com/watch?v=WYnOF-UZ-kI" target="_blank" class="group relative block overflow-hidden rounded shadow">
+        <img src="img/videoclip1.jpg" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
+          <p>El Cofla - En Otra (2023)</p>
+          <p>Dir: Rosario Gonzalez Leaniz</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_cojefe">Cojefaturía de Producción</span></p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=a1w6ogQHO5c" target="_blank" class="group relative block overflow-hidden rounded shadow">
+        <img src="img/videoclip2.jpg" class="w-full transition-transform duration-300 group-hover:scale-110" />
+        <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
+          <p>Paz Carrara - Todo vuelve (2022)</p>
+          <p>Dir: Rosario Gonzalez Leaniz</p>
+          <p><span data-key="rol">Rol</span>: <span data-key="rol_jefe">Jefe de Producción</span></p>
+        </div>
+      </a>
+    </div>
+  </section>
 
-  <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
-    <a href="https://www.youtube.com/watch?v=bHZ30jQbIR0" target="_blank" class="group relative block overflow-hidden rounded shadow">
-      <img src="img/publicidad5.jpg" alt="Urnas" class="w-full transition-transform duration-300 group-hover:scale-110" />
-      <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-        <p>Urnas (2023)</p>
-        <p>Dir: Pablo Cecci</p>
-        <p>Rol: Asistente de Producción</p>
-      </div>
-    </a>
-    <a href="https://www.youtube.com/watch?v=JVb8Vx4Qdj8" target="_blank" class="group relative block overflow-hidden rounded shadow">
-      <img src="img/publicidad6.jpg" alt="Urnas" class="w-full transition-transform duration-300 group-hover:scale-110" />
-      <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-        <p>Urnas (2023)</p>
-        <p>Dir: Pablo Cecci</p>
-        <p>Rol: Asistente de Producción</p>
-      </div>
-    </a>
-    <a href="https://www.youtube.com/watch?v=KPmWdH8Tnx8" target="_blank" class="group relative block overflow-hidden rounded shadow">
-      <img src="img/publicidad4.jpg" alt="Verano Divilo" class="w-full transition-transform duration-300 group-hover:scale-110" />
-      <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-        <p>Verano Divino (2022)</p>
-        <p>Dir: Lucas Combina</p>
-        <p>Rol: Asistente de Producción</p>
-      </div>
-    </a>
-  </div>
+  <hr class="border-t border-gray-300 my-8" />
 
-  <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto">
-    <a href="https://www.instagram.com/reel/DK-JYWORQNz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="group relative block overflow-hidden rounded shadow">
-      <img src="img/Publicidad7.jpg" alt="Publicidad 7" class="w-full transition-transform duration-300 group-hover:scale-110" />
-      <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-        <p>Avioncito (2024)</p>
-        <p>Dir: Pablo Brusa</p>
-        <p>Rol: Asistente de Producción</p>
-      </div>
-    </a>
-    <a href="https://youtu.be/qM2MLvUrOfk?si=WHnhzc6pfuA0lvK0" target="_blank" class="group relative block overflow-hidden rounded shadow">
-      <img src="img/Publicidad8.jpg" alt="Publicidad 8" class="w-full transition-transform duration-300 group-hover:scale-110" />
-      <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-        <p>Te Dio Calor? (2025) </p>
-        <p>Dir: Pablo Cecci</p>
-        <p>Rol: Asistente de Producción</p>
-      </div>
-    </a>
-    <a href="https://youtu.be/DuFt5EWgwuw?si=d__ogaEByw7KS3My" target="_blank" class="group relative block overflow-hidden rounded shadow">
-      <img src="img/Publicidad9.jpg" alt="Publicidad 9" class="w-full transition-transform duration-300 group-hover:scale-110" />
-      <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-        <p>Juan es Córdoba (2025) </p>
-        <p>Dir: Pablo Cecci</p>
-        <p>Rol: Asistente de Producción</p> 
-      </div>
-    </a>
-  </div>
-</section>
-
-<hr class="border-t border-gray-300 my-8" />
-  
-<!-- Trabajos en Videoclip -->
-<section class="my-2 pt-8">
-  <h2 class="text-center text-2xl font-bold mb-6 font-martian">Trabajos en Videoclip</h2>
-  <div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
-    <a href="https://www.youtube.com/watch?v=WYnOF-UZ-kI" target="_blank" class="group relative block overflow-hidden rounded shadow">
-      <img src="img/videoclip1.jpg" alt="Videoclip 1" class="w-full transition-transform duration-300 group-hover:scale-110" />
-      <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-        <p>El Cofla - En Otra (2023)</p>
-        <p>Dir: Rosario Gonzalez Leaniz</p>
-        <p>Rol: Cojefaturía de Producción
-      </div>
-    </a>
-    <a href="https://www.youtube.com/watch?v=a1w6ogQHO5c" target="_blank" class="group relative block overflow-hidden rounded shadow">
-      <img src="img/videoclip2.jpg" alt="Videoclip 2" class="w-full transition-transform duration-300 group-hover:scale-110" />
-      <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 p-4 text-center text-white font-semibold">
-        <p>Paz Carrara - Todo vuelve (2022)</p>
-        <p>Dir: Rosario Gonzalez Leaniz</p>
-        <p>Rol: Jefe de Producción
-      </div>
-    </a>
-  </div>
-</section>
-
-<hr class="border-t border-gray-300 my-8" />
-
-  <!-- Trabajos en Diseño Gráfico -->
   <section id="diseño" class="my-2 pt-8 max-w-6xl mx-auto">
-    <h2 class="text-center text-2xl font-bold mb-6 font-martian">Trabajos en Diseño Gráfico</h2>
-    <div class="relative overflow-hidden w-full h-48"> <!-- altura fija para controlar tamaño -->
+    <h2 class="text-center text-2xl font-bold mb-6 font-martian" data-key="sec_diseno">Trabajos en Diseño Gráfico</h2>
+    <div class="relative overflow-hidden w-full h-48">
       <div class="absolute top-0 left-0 flex slide-loop w-[200%]">
         <img src="img/diseño1.jpg" alt="Diseño Gráfico" class="h-full object-cover" />
         <img src="img/diseño1.jpg" alt="Diseño Gráfico duplicado" class="h-full object-cover" />
@@ -292,21 +241,90 @@
 
   <hr class="border-t border-gray-300 my-8" />
 
-  <!-- Redes Sociales -->
-<footer class="text-center mt-14 mb-8">
-    <h2 class="text-lg font-semibold mb-4">Redes Sociales</h2>
+  <footer class="text-center mt-14 mb-8">
+    <h2 class="text-lg font-semibold mb-4" data-key="socials">Redes Sociales</h2>
     <div class="flex justify-center space-x-6">
-      <a href="https://www.imdb.com/name/nm16288616/" target="_blank" title="IMDb">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/imdb.svg" alt="IMDb" class="w-8 h-8 hover:opacity-75">
-      </a>
-      <a href="https://www.linkedin.com/in/imanol-salinero-spitale/" target="_blank" title="LinkedIn">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="w-8 h-8 hover:opacity-75">
-      </a>
-      <a href="https://wa.me/543516074183" target="_blank" title="WhatsApp">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8 hover:opacity-75">
-      </a>
+      <a href="https://www.imdb.com/name/nm16288616/" target="_blank" title="IMDb"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/imdb.svg" alt="IMDb" class="w-8 h-8 hover:opacity-75"></a>
+      <a href="https://www.linkedin.com/in/imanol-salinero-spitale/" target="_blank" title="LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="w-8 h-8 hover:opacity-75"></a>
+      <a href="https://wa.me/543516074183" target="_blank" title="WhatsApp"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8 hover:opacity-75"></a>
     </div>
   </footer>
 
+  <script>
+    const translations = {
+      es: {
+        nav_inicio: "inicio",
+        nav_reel: "reel",
+        nav_cv: "cv",
+        main_title: "Producción Audiovisual",
+        main_desc: "Más de 10 años de experiencia en producción audiovisual, especializado en el desarrollo, gestión y logística de proyectos de cine, videoclips y publicidad. He liderado y formado parte de equipos creativos y técnicos en producciones independientes, así como en proyectos para plataformas internacionales como Netflix, Amazon Prime, Televisión Pública y Canal Encuentro. Además, he participado en la producción de campañas publicitarias de alto impacto, transmitidas en televisión y redes. A su vez me he desarrollado en el campo del Diseño Gráfico participando activamente con marcas, tanto con en generación de identidad como en contenido para redes.",
+        sec_cine: "Trabajos en Cine",
+        sec_pub: "Trabajos en Publicidad",
+        sec_video: "Trabajos en Videoclip",
+        sec_diseno: "Trabajos en Diseño Gráfico",
+        socials: "Redes Sociales",
+        rol: "Rol",
+        rol_jefe: "Jefe de Producción",
+        rol_asistente: "Asistente de Producción",
+        rol_ayudante: "Ayudante de Producción",
+        rol_meritorio: "Meritorio de Producción",
+        rol_locaciones: "Jefe de Locaciones",
+        rol_asist_loc: "Asistente de Locaciones",
+        rol_cojefe: "Cojefaturía de Producción",
+        peli_teamo: "Te amo tanto que escribí una película para nunca enojarme con vos (2022)",
+        peli_recursos: "Recursos Humanos (2022)",
+        pub1: "Hay un país donde podemos vivir distinto (2023)",
+        pub2: "El valor de dar respuesta (2024)",
+        pub7: "Avioncito (2024)",
+        pub8: "Te Dio Calor? (2025)",
+        pub9: "Juan es Córdoba (2025)"
+      },
+      en: {
+        nav_inicio: "home",
+        nav_reel: "reel",
+        nav_cv: "resume",
+        main_title: "Audiovisual Production",
+        main_desc: "Over 10 years of experience in audiovisual production, specialized in the development, management, and logistics of film, music videos, and advertising projects. I have led and been part of creative and technical teams in independent productions, as well as projects for international platforms such as Netflix, Amazon Prime, Televisión Pública, and Canal Encuentro. Additionally, I have participated in the production of high-impact advertising campaigns broadcast on TV and social media. At the same time, I have developed in the field of Graphic Design, actively working with brands on identity generation and social media content.",
+        sec_cine: "Film Works",
+        sec_pub: "Advertising Works",
+        sec_video: "Music Videos",
+        sec_diseno: "Graphic Design Works",
+        socials: "Social Media",
+        rol: "Role",
+        rol_jefe: "Production Manager",
+        rol_asistente: "Production Assistant",
+        rol_ayudante: "Production Aide",
+        rol_meritorio: "Production Intern",
+        rol_locaciones: "Location Manager",
+        rol_asist_loc: "Location Assistant",
+        rol_cojefe: "Co-Head of Production",
+        peli_teamo: "I love you so much I wrote a movie so I'd never be mad at you (2022)",
+        peli_recursos: "Human Resources (2022)",
+        pub1: "There's a country where we can live differently (2023)",
+        pub2: "The value of giving an answer (2024)",
+        pub7: "Little Plane (2024)",
+        pub8: "Are you feeling hot? (2025)",
+        pub9: "Juan is Córdoba (2025)"
+      }
+    };
+
+    function changeLanguage(lang) {
+      localStorage.setItem('preferredLang', lang);
+      document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[lang][key]) {
+          element.innerText = translations[lang][key];
+        }
+      });
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang;
+    }
+
+    window.onload = () => {
+      const savedLang = localStorage.getItem('preferredLang') || 'es';
+      changeLanguage(savedLang);
+    };
+  </script>
 </body>
 </html>
