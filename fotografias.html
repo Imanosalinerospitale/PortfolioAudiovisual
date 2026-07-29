@@ -47,7 +47,7 @@
   <!-- GALERÍA DE IMÁGENES -->
   <section class="max-w-7xl mx-auto my-6">
     <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      <!-- Las 159 imágenes se cargan dinámicamente desde la carpeta Analógicas/ -->
+      <!-- Las 159 imágenes se cargan dinámicamente -->
     </div>
   </section>
 
@@ -72,9 +72,13 @@
   </div>
 
   <script>
-    // RUTA EXACTA A TU CARPETA "Analógicas" Y SUS ARCHIVOS "Analógicas (1).webp"
+    // RUTAS A LAS 159 IMÁGENES DENTRO DE LA CARPETA Analógicas/ (Archivos "Analógica (1).webp")
     const TOTAL_FOTOS = 159;
-    const photos = Array.from({ length: TOTAL_FOTOS }, (_, i) => `Analógicas/Analógicas (${i + 1}).webp`);
+    
+    const photos = Array.from({ length: TOTAL_FOTOS }, (_, i) => {
+      const fileName = `Analógica (${i + 1}).webp`;
+      return `Analógicas/${encodeURIComponent(fileName)}`;
+    });
 
     let currentPhotoIndex = 0;
 
@@ -83,7 +87,7 @@
       const container = document.getElementById('gallery-container');
       container.innerHTML = photos.map((src, index) => `
         <div class="overflow-hidden rounded shadow bg-gray-100 cursor-pointer group" onclick="openLightbox(${index})">
-          <img src="${encodeURI(src)}" loading="lazy" alt="Fotografía ${index + 1}" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+          <img src="${src}" loading="lazy" alt="Fotografía ${index + 1}" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
         </div>
       `).join('');
     }
@@ -91,7 +95,7 @@
     // CONTROL DEL LIGHTBOX
     function openLightbox(index) {
       currentPhotoIndex = index;
-      document.getElementById('lightbox-img').src = encodeURI(photos[currentPhotoIndex]);
+      document.getElementById('lightbox-img').src = photos[currentPhotoIndex];
       document.getElementById('lightbox').classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
@@ -103,12 +107,12 @@
 
     function prevImage() {
       currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
-      document.getElementById('lightbox-img').src = encodeURI(photos[currentPhotoIndex]);
+      document.getElementById('lightbox-img').src = photos[currentPhotoIndex];
     }
 
     function nextImage() {
       currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
-      document.getElementById('lightbox-img').src = encodeURI(photos[currentPhotoIndex]);
+      document.getElementById('lightbox-img').src = photos[currentPhotoIndex];
     }
 
     // TECLAS FLECHAS Y ESCAPE
