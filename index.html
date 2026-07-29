@@ -30,6 +30,7 @@
   <header class="flex justify-between items-center py-3 text-sm">
     <nav class="space-x-6">
       <a href="#inicio" class="hover:underline" data-key="nav_inicio">inicio</a>
+      <a href="Fotografias.html" class="hover:underline" data-key="nav_foto">fotografía</a>
       <a href="https://drive.google.com/file/d/1mj4kHYrMsSkVju7X1PdJfNrze0NyiQni/view?usp=sharing" target="_blank" class="hover:underline" data-key="nav_reel">reel</a>
       <a id="nav-cv-link" href="CV - Imanol Salinero Spitale.pdf" data-pdf-es="CV - Imanol Salinero Spitale.pdf" data-pdf-en="CV - Imanol Salinero Spitale - English.pdf" target="_blank" class="hover:underline" data-key="nav_cv">cv</a>
     </nav>
@@ -40,7 +41,7 @@
     </div>
   </header>
 
-  <!-- LOGO (ESPACIOS REDUCIDOS) -->
+  <!-- LOGO -->
   <section id="inicio" class="flex justify-center my-2 sm:my-4">
     <img src="img/logo.png" alt="Logo Imanol Salinero Spitale" class="w-full max-w-md sm:max-w-xl md:max-w-2xl px-4" />
   </section>
@@ -148,7 +149,7 @@
     // DICCIONARIO TRADUCCIONES
     const translations = {
       es: {
-        nav_inicio: "inicio", nav_reel: "reel", nav_cv: "cv", main_title: "PRODUCCIÓN AUDIOVISUAL",
+        nav_inicio: "inicio", nav_foto: "fotografía", nav_reel: "reel", nav_cv: "cv", main_title: "PRODUCCIÓN AUDIOVISUAL",
         main_desc: "Más de 10 años de experiencia en producción audiovisual, especializado en el desarrollo, gestión y logística de proyectos de cine, videoclips y publicidad. He liderado y formado parte de equipos creativos y técnicos en producciones independientes, así como en proyectos para plataformas internacionales como Netflix, Amazon Prime, Televisión Pública y Canal Encuentro. Además, he participado en la producción de campañas publicitarias de alto impacto, transmitidas en televisión y redes. A su vez me he desarrollado en el campo del Diseño Gráfico participando activamente con marcas, tanto con en generación de identidad como en contenido para redes.",
         sec_cine: "CINE", sec_pub: "PUBLICIDAD", sec_video: "VIDEOCLIPS", sec_diseno: "DISEÑO GRÁFICO", socials: "Redes Sociales",
         dir: "Dir", rol: "Rol", rol_jefe: "Jefe de Producción", rol_asistente: "Asistente de Producción", rol_ayudante: "Ayudante de Producción", rol_meritorio: "Meritorio de Producción", rol_locaciones: "Jefe de Locaciones", rol_asist_loc: "Asistente de Locaciones", rol_cojefe: "Cojefaturía de Producción",
@@ -158,7 +159,7 @@
         vc1_title: "El Cofla - En Otra (2023)", vc2_title: "Paz Carrara - Todo vuelve (2022)"
       },
       en: {
-        nav_inicio: "home", nav_reel: "reel", nav_cv: "resume", main_title: "AUDIOVISUAL PRODUCTION",
+        nav_inicio: "home", nav_foto: "photography", nav_reel: "reel", nav_cv: "resume", main_title: "AUDIOVISUAL PRODUCTION",
         main_desc: "Over 10 years of experience in audiovisual production, specialized in the development, management, and logistics of film, music videos, and advertising projects. I have led and been part of creative and technical teams in independent productions, as well as projects for international platforms such as Netflix, Amazon Prime, Televisión Pública, and Canal Encuentro. Additionally, I have participated in the production of high-impact advertising campaigns broadcast on TV and social media. At the same time, I have developed in the field of Graphic Design, actively working with brands on identity generation and social media content.",
         sec_cine: "FILM", sec_pub: "ADVERTISING", sec_video: "MUSIC VIDEOS", sec_diseno: "GRAPHIC DESIGN", socials: "Social Media",
         dir: "Dir", rol: "Role", rol_jefe: "Production Manager", rol_asistente: "Production Assistant", rol_ayudante: "Production Aide", rol_meritorio: "Production Intern", rol_locaciones: "Location Manager", rol_asist_loc: "Location Assistant", rol_cojefe: "Co-Head of Production",
@@ -209,17 +210,14 @@
       changeLanguage(savedLang);
     };
 
-    // CAMBIO DE IDIOMA Y CAMBIO DINÁMICO DE PDF
+    // CAMBIO DE IDIOMA Y PDF DINÁMICO
     function changeLanguage(lang) {
       localStorage.setItem('preferredLang', lang);
-      
-      // Traducir textos
       document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (translations[lang][key]) { el.innerText = translations[lang][key]; }
       });
 
-      // Actualizar enlace de CV según el idioma
       const cvLink = document.getElementById('nav-cv-link');
       if (cvLink) {
         cvLink.href = cvLink.getAttribute(`data-pdf-${lang}`);
