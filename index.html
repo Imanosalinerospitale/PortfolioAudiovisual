@@ -40,7 +40,7 @@
     </div>
   </header>
 
-  <!-- LOGO & PERFIL (TAMAÑO AGRANDADO) -->
+  <!-- LOGO & PERFIL -->
   <section id="inicio" class="flex justify-center my-8 sm:my-12">
     <img src="img/logo.png" alt="Logo Imanol Salinero Spitale" class="w-full max-w-md sm:max-w-xl md:max-w-2xl px-4" />
   </section>
@@ -161,14 +161,14 @@
       }
     };
 
-    // FUNCIÓN CREADORA DE TARJETAS (FICHA VISIBLE DEBAJO DE LA IMAGEN)
+    // FUNCIÓN CREADORA DE TARJETAS (FICHA VISIBLE CENTRADA DEBAJO DE LA IMAGEN)
     function createCardHTML(item) {
       return `
         <a href="${item.url}" target="_blank" class="group block w-full">
           <div class="overflow-hidden rounded shadow bg-gray-100 mb-3">
             <img src="${item.img}" alt="Proyecto" class="w-full transition-transform duration-300 group-hover:scale-105" />
           </div>
-          <div class="text-left px-1">
+          <div class="text-center px-1">
             <h3 class="font-bold text-sm sm:text-base leading-snug text-gray-900 group-hover:underline" data-key="${item.titleKey}"></h3>
             <p class="text-xs sm:text-sm text-gray-600 mt-1"><span data-key="dir">Dir</span>: ${item.dir}</p>
             <p class="text-xs sm:text-sm text-gray-500"><span data-key="rol">Rol</span>: <span class="font-medium text-gray-700" data-key="${item.rolKey}"></span></p>
