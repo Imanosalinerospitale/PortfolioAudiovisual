@@ -46,7 +46,7 @@
   </section>
 
   <section class="text-center max-w-3xl mx-auto">
-    <h1 class="text-3xl sm:text-4xl font-bold mb-4 font-martian" data-key="main_title">PRODUCCIÓN AUDIOVISUAL</h1>
+    <h1 class="text-5xl sm:text-6xl font-bold mb-6 font-martian" data-key="main_title">PRODUCCIÓN AUDIOVISUAL</h1>
     <p class="text-base sm:text-lg leading-relaxed text-gray-800" data-key="main_desc">
       Más de 10 años de experiencia en producción audiovisual, especializado en el desarrollo, gestión y logística de proyectos de cine, videoclips y publicidad.
       He liderado y formado parte de equipos creativos y técnicos en producciones independientes, así como en proyectos para plataformas internacionales como Netflix, Amazon Prime, Televisión Pública y Canal Encuentro.
@@ -105,18 +105,25 @@
   </footer>
 
   <script>
-    // BASE DE DATOS DE PROYECTOS
+    // BASE DE DATOS DE PROYECTOS (CINE ORDENADO POR JERARQUÍA DE ROL)
     const proyectosCine = [
+      // 1. Jefe de Producción / Jefe de Locaciones
       { img: 'img/cine1.jpg', url: 'https://www.youtube.com/watch?v=9yp4tHdHjuE', titleKey: 'cine1_title', dir: 'Emilia Cotella - John Mathis', rolKey: 'rol_jefe' },
       { img: 'img/cine2.jpg', url: 'https://www.youtube.com/watch?v=KNXPRVad4uk', titleKey: 'cine2_title', dir: 'Leandro Naranjo - Santiago Zapata', rolKey: 'rol_jefe' },
-      { img: 'img/cine3.jpg', url: 'https://www.youtube.com/watch?v=seLUU2iS0no', titleKey: 'cine3_title', dir: 'Rosendo Ruiz', rolKey: 'rol_ayudante' },
       { img: 'img/cine4.jpg', url: 'https://vimeo.com/813717069', titleKey: 'peli_teamo', dir: 'Rosario Gonzáles Leaniz - Alba Cravero', rolKey: 'rol_locaciones' },
+      
+      // 2. Asistente de Producción
+      { img: 'img/cine9.jpg', url: 'https://www.youtube.com/watch?v=8oDYkO-hI7c', titleKey: 'cine9_title', dir: 'Rodrigo Fernandez Engler', rolKey: 'rol_asistente' },
+      { img: 'img/cine10.jpg', url: 'https://www.youtube.com/shorts/pu87xbq4GpM', titleKey: 'cine10_title', dir: 'Teo Ciampagna', rolKey: 'rol_asistente' },
+
+      // 3. Ayudante de Producción
+      { img: 'img/cine3.jpg', url: 'https://www.youtube.com/watch?v=seLUU2iS0no', titleKey: 'cine3_title', dir: 'Rosendo Ruiz', rolKey: 'rol_ayudante' },
       { img: 'img/cine5.jpg', url: 'https://www.youtube.com/watch?v=Ofl9AecfSfQ', titleKey: 'cine5_title', dir: 'Santiago Giralt', rolKey: 'rol_ayudante' },
       { img: 'img/cine6.jpg', url: 'https://www.youtube.com/watch?v=rSmKl347Ktk', titleKey: 'cine6_title', dir: 'Mauricio Minotti', rolKey: 'rol_ayudante' },
-      { img: 'img/cine7.jpg', url: 'https://www.youtube.com/watch?v=Vs8AX9dsOJE', titleKey: 'peli_recursos', dir: 'Jesús Magaña Vazquez', rolKey: 'rol_meritorio' },
       { img: 'img/cine8.jpg', url: 'https://www.youtube.com/watch?v=acCKexISlmk', titleKey: 'cine8_title', dir: 'Matías Luchessi', rolKey: 'rol_ayudante' },
-      { img: 'img/cine9.jpg', url: 'https://www.youtube.com/watch?v=8oDYkO-hI7c', titleKey: 'cine9_title', dir: 'Rodrigo Fernandez Engler', rolKey: 'rol_asistente' },
-      { img: 'img/cine10.jpg', url: 'https://www.youtube.com/shorts/pu87xbq4GpM', titleKey: 'cine10_title', dir: 'Teo Ciampagna', rolKey: 'rol_asistente' }
+
+      // 4. Meritorio de Producción
+      { img: 'img/cine7.jpg', url: 'https://www.youtube.com/watch?v=Vs8AX9dsOJE', titleKey: 'peli_recursos', dir: 'Jesús Magaña Vazquez', rolKey: 'rol_meritorio' }
     ];
 
     const proyectosPub = [
