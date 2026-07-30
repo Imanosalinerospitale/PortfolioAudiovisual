@@ -44,10 +44,10 @@
     <h1 class="text-5xl sm:text-6xl font-bold font-martian" data-key="title_foto">FOTOGRAFÍA</h1>
   </section>
 
-  <!-- GALERÍA ESTILO MASONRY (TETRIS ORGÁNICO) -->
+  <!-- GALERÍA ESTILO MASONRY (TETRIS ORGÁNICO CON ORDEN ALEATORIO) -->
   <section class="max-w-7xl mx-auto my-6">
     <div id="gallery-container" class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-      <!-- Las imágenes se acomodan dinámicamente según su orientación -->
+      <!-- Las imágenes se acomodan dinámicamente -->
     </div>
   </section>
 
@@ -72,22 +72,33 @@
   </div>
 
   <script>
-    // AJUSTÁ ESTA VARIABLE A LA CANTIDAD TOTAL DE FOTOS
     const TOTAL_FOTOS = 159; 
     
-    const photos = Array.from({ length: TOTAL_FOTOS }, (_, i) => {
+    // Generamos las rutas de las fotos
+    let photos = Array.from({ length: TOTAL_FOTOS }, (_, i) => {
       const fileName = `Analógica (${i + 1}).webp`;
       return `Analógicas/${encodeURIComponent(fileName)}`;
     });
 
+    // ALGORITMO PARA MEZCLAR LAS FOTOS ALEATORIAMENTE (Fisher-Yates)
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
     let currentPhotoIndex = 0;
 
-    // RENDERIZAR GALERÍA MASONRY CON OCULTAMIENTO AUTOMÁTICO DE ERRORES
+    // RENDERIZAR GALERÍA MEZCLADA
     function renderGallery() {
+      // Mezclamos el array antes de dibujarlo en pantalla
+      shuffleArray(photos);
+
       const container = document.getElementById('gallery-container');
       container.innerHTML = photos.map((src, index) => `
         <div id="photo-card-${index}" class="break-inside-avoid overflow-hidden rounded shadow bg-gray-100 cursor-pointer group mb-4" onclick="openLightbox(${index})">
-          <img src="${src}" loading="lazy" alt="Fotografía ${index + 1}" class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105" onerror="document.getElementById('photo-card-${index}').remove();" />
+          <img src="${src}" loading="lazy" alt="Fotografía" class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105" onerror="document.getElementById('photo-card-${index}').remove();" />
         </div>
       `).join('');
     }
