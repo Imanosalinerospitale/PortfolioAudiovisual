@@ -139,7 +139,7 @@
       { img: 'img/Publicidad8.jpg', url: 'https://youtu.be/qM2MLvUrOfk', titleKey: 'pub8', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
       { img: 'img/Publicidad9.jpg', url: 'https://youtu.be/DuFt5EWgwuw', titleKey: 'pub9', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
       { img: 'img/Publicidad10.jpg', url: 'https://www.instagram.com/p/DYDcg10p_DT/', titleKey: 'pub10', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
-      { img: 'img/Publicidad11.jpg', url: 'https://www.youtube.com/watch?v=eSAB1C4yWj0', titleKey: 'pub11', dir: 'Lucas Rosas - Manuel Pons', rolKey: 'rol_asistente' }
+      { img: 'img/Publicidad11.jpg', url: 'https://www.instagram.com/reel/DEzB016Jp-T/', titleKey: 'pub11', dir: 'Lucas Rosas - Manuel Pons', rolKey: 'rol_asistente' }
     ];
 
     const proyectosVideo = [
@@ -171,11 +171,12 @@
       }
     };
 
-    // FUNCIÓN CREADORA DE TARJETAS CON ALTURA / PROPORCIÓN UNIFORME (16:9)
-    function createCardHTML(item) {
+    // FUNCIÓN CREADORA DE TARJETAS QUE SOPORTA AMBOS ASPECT RATIOS
+    // 'aspect-[2/3]' para posters de cine y 'aspect-video' para publicidad/videoclips
+    function createCardHTML(item, aspectClass = 'aspect-video') {
       return `
         <a href="${item.url}" target="_blank" class="group block w-full">
-          <div class="overflow-hidden rounded shadow bg-gray-100 mb-3 aspect-video">
+          <div class="overflow-hidden rounded shadow bg-gray-100 mb-3 ${aspectClass}">
             <img src="${item.img}" alt="Proyecto" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
           </div>
           <div class="text-center px-1">
@@ -186,8 +187,8 @@
         </a>`;
     }
 
-    // RENDERIZADO FLEXIBLE DE GRILLAS EN FILAS DE HASTA 4 ELEMENTOS CON ÚLTIMA FILA CENTRADA
-    function renderGridAuto(items, containerId) {
+    // RENDERIZADO FLEXIBLE DE GRILLAS
+    function renderGridAuto(items, containerId, aspectClass = 'aspect-video') {
       const container = document.getElementById(containerId);
       const chunkSize = 4;
       let html = '';
@@ -195,16 +196,16 @@
       for (let i = 0; i < items.length; i += chunkSize) {
         const chunk = items.slice(i, i + chunkSize);
         if (chunk.length === 4) {
-          html += `<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">${chunk.map(createCardHTML).join('')}</div>`;
+          html += `<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">${chunk.map(item => createCardHTML(item, aspectClass)).join('')}</div>`;
         } else {
-          // Última fila con menos de 4 tarjetas: se centra automáticamente
+          // Centrado dinámico si la última fila tiene menos de 4 tarjetas
           const colSpanClass = chunk.length === 1 ? 'w-full sm:w-1/2 md:w-1/4' : chunk.length === 2 ? 'w-full md:w-1/2' : 'w-full md:w-3/4';
           const gridColsClass = chunk.length === 1 ? 'grid-cols-1' : chunk.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3';
           
           html += `
             <div class="flex justify-center">
               <div class="grid ${gridColsClass} gap-6 ${colSpanClass}">
-                ${chunk.map(createCardHTML).join('')}
+                ${chunk.map(item => createCardHTML(item, aspectClass)).join('')}
               </div>
             </div>`;
         }
@@ -214,9 +215,12 @@
 
     // INICIALIZACIÓN
     window.onload = () => {
-      renderGridAuto(proyectosCine, 'grid-cine');
-      renderGridAuto(proyectosPub, 'grid-pub');
-      document.getElementById('grid-video').innerHTML = proyectosVideo.map(createCardHTML).join('');
+      // Cine usa aspect-[2/3] vertical de afiche
+      renderGridAuto(proyectosCine, 'grid-cine', 'aspect-[2/3]');
+      // Publicidad usa aspect-video horizontal (16:9)
+      renderGridAuto(proyectosPub, 'grid-pub', 'aspect-video');
+      // Videoclips usa aspect-video horizontal (16:9)
+      document.getElementById('grid-video').innerHTML = proyectosVideo.map(item => createCardHTML(item, 'aspect-video')).join('');
       
       const savedLang = localStorage.getItem('preferredLang') || 'es';
       changeLanguage(savedLang);
