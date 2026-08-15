@@ -138,7 +138,8 @@
       { img: 'img/Publicidad7.jpg', url: 'https://www.instagram.com/reel/DK-JYWORQNz/', titleKey: 'pub7', dir: 'Pablo Brusa', rolKey: 'rol_asistente' },
       { img: 'img/Publicidad8.jpg', url: 'https://youtu.be/qM2MLvUrOfk', titleKey: 'pub8', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
       { img: 'img/Publicidad9.jpg', url: 'https://youtu.be/DuFt5EWgwuw', titleKey: 'pub9', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
-      { img: 'img/Publicidad10.jpg', url: 'https://www.instagram.com/p/DYDcg10p_DT/', titleKey: 'pub10', dir: 'Pablo Cecci', rolKey: 'rol_asistente' }
+      { img: 'img/Publicidad10.jpg', url: 'https://www.instagram.com/p/DYDcg10p_DT/', titleKey: 'pub10', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
+      { img: 'img/Publicidad11.jpg', url: '#', titleKey: 'pub11', dir: 'Lucas Rosas - Manuel Pons', rolKey: 'rol_asistente' }
     ];
 
     const proyectosVideo = [
@@ -155,7 +156,7 @@
         dir: "Dir", rol: "Rol", rol_jefe: "Jefe de Producción", rol_asistente: "Asistente de Producción", rol_ayudante: "Ayudante de Producción", rol_meritorio: "Meritorio de Producción", rol_locaciones: "Jefe de Locaciones", rol_asist_loc: "Asistente de Locaciones", rol_cojefe: "Cojefaturía de Producción",
         cine1_title: "Un Susurro Invocó mi Nombre (2024)", cine2_title: "La Cumbre (2024)", cine3_title: "La Zurda (2024)", cine5_title: "Norma (2023)", cine6_title: "La Pulpera (2023)", cine8_title: "El Casero (2023)", cine9_title: "Ciudades de Refugio (2024)", cine10_title: "Jubilada y Peligrosa (2026)",
         peli_teamo: "Te amo tanto que escribí una película para nunca enojarme con vos (2022)", peli_recursos: "Recursos Humanos (2022)",
-        pub1: "Hay un país donde podemos vivir distinto (2023)", pub2: "El valor de dar respuesta (2024)", pub3: "Levantados (2023)", pub_urnas: "Urnas (2023)", pub_verano: "Verano Divino (2022)", pub7: "Avioncito (2024)", pub8: "Te Dio Calor? (2025)", pub9: "Juan es Córdoba (2025)", pub10: "Bienvenidos los que se Mueven (2026)",
+        pub1: "Hay un país donde podemos vivir distinto (2023)", pub2: "El valor de dar respuesta (2024)", pub3: "Levantados (2023)", pub_urnas: "Urnas (2023)", pub_verano: "Verano Divino (2022)", pub7: "Avioncito (2024)", pub8: "Te Dio Calor? (2025)", pub9: "Juan es Córdoba (2025)", pub10: "Bienvenidos los que se Mueven (2026)", pub11: "Milo J - Anuncio Rueda de Prensa (2026)",
         vc1_title: "El Cofla - En Otra (2023)", vc2_title: "Paz Carrara - Todo vuelve (2022)"
       },
       en: {
@@ -165,7 +166,7 @@
         dir: "Dir", rol: "Role", rol_jefe: "Production Manager", rol_asistente: "Production Assistant", rol_ayudante: "Production Aide", rol_meritorio: "Production Intern", rol_locaciones: "Location Manager", rol_asist_loc: "Location Assistant", rol_cojefe: "Co-Head of Production",
         cine1_title: "A Whisper Called My Name (2024)", cine2_title: "The Summit (2024)", cine3_title: "The Left Hand (2024)", cine5_title: "Norma (2023)", cine6_title: "The Tavern Keeper (2023)", cine8_title: "The Housekeeper (2023)", cine9_title: "Cities of Refuge (2024)", cine10_title: "Retired and Dangerous (2026)",
         peli_teamo: "I love you so much I wrote a movie so I'd never be mad at you (2022)", peli_recursos: "Human Resources (2022)",
-        pub1: "There's a country where we can live differently (2023)", pub2: "The value of giving an answer (2024)", pub3: "Raised (2023)", pub_urnas: "Ballot Boxes (2023)", pub_verano: "Divine Summer (2022)", pub7: "Little Plane (2024)", pub8: "Are you feeling hot? (2025)", pub9: "Juan is Córdoba (2025)", pub10: "Welcome Those Who Move (2026)",
+        pub1: "There's a country where we can live differently (2023)", pub2: "The value of giving an answer (2024)", pub3: "Raised (2023)", pub_urnas: "Ballot Boxes (2023)", pub_verano: "Divine Summer (2022)", pub7: "Little Plane (2024)", pub8: "Are you feeling hot? (2025)", pub9: "Juan is Córdoba (2025)", pub10: "Welcome Those Who Move (2026)", pub11: "Milo J - Press Conference Announcement (2026)",
         vc1_title: "El Cofla - Somewhere Else (2023)", vc2_title: "Paz Carrara - Everything Comes Back (2022)"
       }
     };
@@ -185,25 +186,36 @@
         </a>`;
     }
 
-    // RENDERIZADO DE GRILLAS EN FORMATO 4 4 2
-    function renderGrid442(items, containerId) {
+    // RENDERIZADO FLEXIBLE DE GRILLAS EN FILAS DE HASTA 4 ELEMENTOS CON ÚLTIMA FILA CENTRADA
+    function renderGridAuto(items, containerId) {
       const container = document.getElementById(containerId);
-      const row1 = items.slice(0, 4).map(createCardHTML).join('');
-      const row2 = items.slice(4, 8).map(createCardHTML).join('');
-      const row3 = items.slice(8, 10).map(createCardHTML).join('');
+      const chunkSize = 4;
+      let html = '';
 
-      container.innerHTML = `
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">${row1}</div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">${row2}</div>
-        <div class="flex justify-center">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full md:w-1/2">${row3}</div>
-        </div>`;
+      for (let i = 0; i < items.length; i += chunkSize) {
+        const chunk = items.slice(i, i + chunkSize);
+        if (chunk.length === 4) {
+          html += `<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">${chunk.map(createCardHTML).join('')}</div>`;
+        } else {
+          // Última fila con menos de 4 tarjetas: se centra automáticamente
+          const colSpanClass = chunk.length === 1 ? 'w-full sm:w-1/2 md:w-1/4' : chunk.length === 2 ? 'w-full md:w-1/2' : 'w-full md:w-3/4';
+          const gridColsClass = chunk.length === 1 ? 'grid-cols-1' : chunk.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3';
+          
+          html += `
+            <div class="flex justify-center">
+              <div class="grid ${gridColsClass} gap-6 ${colSpanClass}">
+                ${chunk.map(createCardHTML).join('')}
+              </div>
+            </div>`;
+        }
+      }
+      container.innerHTML = html;
     }
 
     // INICIALIZACIÓN
     window.onload = () => {
-      renderGrid442(proyectosCine, 'grid-cine');
-      renderGrid442(proyectosPub, 'grid-pub');
+      renderGridAuto(proyectosCine, 'grid-cine');
+      renderGridAuto(proyectosPub, 'grid-pub');
       document.getElementById('grid-video').innerHTML = proyectosVideo.map(createCardHTML).join('');
       
       const savedLang = localStorage.getItem('preferredLang') || 'es';
