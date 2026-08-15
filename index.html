@@ -139,7 +139,7 @@
       { img: 'img/Publicidad8.jpg', url: 'https://youtu.be/qM2MLvUrOfk', titleKey: 'pub8', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
       { img: 'img/Publicidad9.jpg', url: 'https://youtu.be/DuFt5EWgwuw', titleKey: 'pub9', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
       { img: 'img/Publicidad10.jpg', url: 'https://www.instagram.com/p/DYDcg10p_DT/', titleKey: 'pub10', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
-      { img: 'img/Publicidad11.jpg', url: 'https://www.youtube.com/watch?v=eSAB1C4yWj0', titleKey: 'pub11', dir: 'Lucas Rosas - Manuel Pons', rolKey: 'rol_asistente' }
+      { img: 'img/Publicidad11.jpg', url: '#', titleKey: 'pub11', dir: 'Lucas Rosas - Manuel Pons', rolKey: 'rol_asistente' }
     ];
 
     const proyectosVideo = [
@@ -171,12 +171,12 @@
       }
     };
 
-    // FUNCIÓN CREADORA DE TARJETAS (FICHA VISIBLE CENTRADA DEBAJO DE LA IMAGEN)
+    // FUNCIÓN CREADORA DE TARJETAS CON ALTURA / PROPORCIÓN UNIFORME (16:9)
     function createCardHTML(item) {
       return `
         <a href="${item.url}" target="_blank" class="group block w-full">
-          <div class="overflow-hidden rounded shadow bg-gray-100 mb-3">
-            <img src="${item.img}" alt="Proyecto" class="w-full transition-transform duration-300 group-hover:scale-105" />
+          <div class="overflow-hidden rounded shadow bg-gray-100 mb-3 aspect-video">
+            <img src="${item.img}" alt="Proyecto" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
           </div>
           <div class="text-center px-1">
             <h3 class="font-bold text-sm sm:text-base leading-snug text-gray-900 group-hover:underline" data-key="${item.titleKey}"></h3>
