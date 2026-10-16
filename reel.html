@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reel - Imanol Salinero Spitale</title>
+  <meta name="description" content="Reel de producción audiovisual de Imanol Salinero Spitale." />
+  <meta property="og:title" content="Reel - Imanol Salinero Spitale" />
+  <meta property="og:description" content="Reel de producción audiovisual de Imanol Salinero Spitale." />
+  <meta property="og:image" content="https://imanolsalinerospitale.com/img/linkedingraph.jpg?v=2" />
+  <meta property="og:url" content="https://imanolsalinerospitale.com/reel.html" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="img/bloque.png?v=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body data-page="reel">
+  <div id="site-header"></div>
+  <script src="site.js"></script>
+
+  <main class="wrap page-main">
+    <h1 class="sec-title font-martian" data-key="sec_reel">REEL</h1>
+    <div id="reel-frame" class="reel-frame"></div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script>
+    // Pegá acá el ID numérico del video de Vimeo (ej: '123456789'). Si es "no listado", agregá el hash: '123456789?h=abcdef1234'
+    const REEL_VIMEO_ID = '';
+
+    addTranslations({ sec_reel: 'REEL', reel_soon: 'Reel próximamente' }, { sec_reel: 'REEL', reel_soon: 'Reel coming soon' });
+
+    window.onload = () => {
+      document.getElementById('reel-frame').innerHTML = REEL_VIMEO_ID
+        ? `<iframe src="https://player.vimeo.com/video/${REEL_VIMEO_ID}${REEL_VIMEO_ID.includes('?') ? '&' : '?'}dnt=1" title="Reel" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>`
+        : '<p data-key="reel_soon">Reel próximamente</p>';
+      initSite();
+    };
+  </script>
+</body>
+</html>
