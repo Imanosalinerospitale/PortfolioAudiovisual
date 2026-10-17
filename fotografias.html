@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta property="og:title" content="Imanol Salinero Spitale - Fotografía" />
+  <meta property="og:description" content="Portfolio fotográfico de Imanol Salinero Spitale - Producción Audiovisual y Dirección de Fotografía." />
+  <meta property="og:image" content="https://imanolsalinerospitale.com/img/linkedingraph.jpg?v=2" />
+  <meta property="og:url" content="https://imanolsalinerospitale.com/fotografias.html" />
+  <meta property="og:type" content="website" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Imanol Salinero Spitale - Fotografía</title>
+  <link rel="icon" type="image/png" href="img/bloque.png?v=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-white text-black" data-page="foto">
+
+  <!-- HEADER NAV -->
+  <div id="site-header"></div>
+  <script src="site.js"></script>
+
+  <!-- TITULO SECCIÓN -->
+  <section class="text-center my-6 sm:my-8">
+    <h1 class="text-5xl sm:text-6xl font-bold font-martian" data-key="title_foto">FOTOGRAFÍA</h1>
+  </section>
+
+  <!-- GALERÍA ESTILO MASONRY (TETRIS ORGÁNICO CON ORDEN ALEATORIO) -->
+  <section class="max-w-7xl mx-auto my-6 px-4 sm:px-8">
+    <div id="gallery-container" class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+      <!-- Las imágenes se acomodan dinámicamente -->
+    </div>
+  </section>
+
+  
+  <!-- FOOTER -->
+  <div id="site-footer"></div>
+
+  <!-- LIGHTBOX / VISOR PANTALLA COMPLETA -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-95 hidden z-50 flex items-center justify-center p-4 select-none">
+    <button onclick="closeLightbox()" aria-label="Cerrar" class="absolute top-4 right-6 text-white text-4xl font-bold hover:text-gray-400 focus:outline-none">&times;</button>
+    <button onclick="prevImage()" aria-label="Anterior" class="absolute left-4 text-white text-5xl font-bold hover:text-gray-400 focus:outline-none p-2">&lsaquo;</button>
+    <img id="lightbox-img" src="" alt="Fotografía en tamaño completo" class="max-h-[90vh] max-w-[90vw] object-contain rounded shadow-2xl" />
+    <button onclick="nextImage()" aria-label="Siguiente" class="absolute right-4 text-white text-5xl font-bold hover:text-gray-400 focus:outline-none p-2">&rsaquo;</button>
+  </div>
+
+  <script>
+    const TOTAL_FOTOS = 159; 
+    
+    // Generamos las rutas de las fotos
+    let photos = Array.from({ length: TOTAL_FOTOS }, (_, i) => {
+      const fileName = `Analógica (${i + 1}).webp`;
+      return `Analógicas/${encodeURIComponent(fileName)}`;
+    });
+
+    // ALGORITMO PARA MEZCLAR LAS FOTOS ALEATORIAMENTE (Fisher-Yates)
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    let currentPhotoIndex = 0;
+
+    // RENDERIZAR GALERÍA MEZCLADA
+    function renderGallery() {
+      // Mezclamos el array antes de dibujarlo en pantalla
+      shuffleArray(photos);
+
+      const container = document.getElementById('gallery-container');
+      container.innerHTML = photos.map((src, index) => `
+        <div id="photo-card-${index}" class="break-inside-avoid overflow-hidden rounded shadow bg-gray-100 cursor-pointer group mb-4" onclick="openLightbox(${index})">
+          <img src="${src}" loading="lazy" alt="" class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105" onerror="document.getElementById('photo-card-${index}').remove();" />
+        </div>
+      `).join('');
+    }
+
+    // CONTROL DEL LIGHTBOX
+    function openLightbox(index) {
+      currentPhotoIndex = index;
+      document.getElementById('lightbox-img').src = photos[currentPhotoIndex];
+      document.getElementById('lightbox').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function prevImage() {
+      currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+      document.getElementById('lightbox-img').src = photos[currentPhotoIndex];
+    }
+
+    function nextImage() {
+      currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+      document.getElementById('lightbox-img').src = photos[currentPhotoIndex];
+    }
+
+    // TECLAS FLECHAS Y ESCAPE
+    document.addEventListener('keydown', (e) => {
+      const lightbox = document.getElementById('lightbox');
+      if (!lightbox.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'ArrowRight') nextImage();
+      }
+    });
+
+    addTranslations({ title_foto: 'FOTOGRAFÍA' }, { title_foto: 'PHOTOGRAPHY' });
+
+    window.onload = () => { renderGallery(); initSite(); };
+  </script>
+</body>
+</html>
