@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta property="og:title" content="Imanol Salinero Spitale - Currículum Vitae" />
+  <meta property="og:description" content="CV Profesional de Imanol Salinero Spitale - Producción Audiovisual" />
+  <meta property="og:image" content="https://imanolsalinerospitale.com/img/linkedingraph.jpg?v=2" />
+  <meta property="og:url" content="https://imanolsalinerospitale.com/cv.html" />
+  <meta property="og:type" content="website" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Imanol Salinero Spitale - CV</title>
+  <link rel="icon" type="image/png" href="img/bloque.png?v=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    .font-martian { font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
+    .lang-btn.active { text-decoration: underline; font-weight: bold; color: #000; }
+    .lang-btn { color: #666; transition: all 0.3s; }
+  </style>
+</head>
+<body class="bg-white text-black px-4 sm:px-8">
+
+  <!-- HEADER NAV -->
+  <header class="flex justify-between items-center py-3 text-sm">
+    <nav class="space-x-6">
+      <a href="index.html#inicio" class="hover:underline" data-key="nav_inicio">inicio</a>
+      <a href="fotografias.html" class="hover:underline" data-key="nav_foto">fotografía</a>
+      <a href="https://drive.google.com/file/d/1mj4kHYrMsSkVju7X1PdJfNrze0NyiQni/view?usp=sharing" target="_blank" class="hover:underline" data-key="nav_reel">reel</a>
+      <a href="cv.html" class="hover:underline font-bold" data-key="nav_cv">cv</a>
+    </nav>
+    <div class="flex space-x-2 items-center border-l pl-4 border-gray-300">
+      <button onclick="changeLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
+      <span class="text-gray-300">|</span>
+      <button onclick="changeLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+    </div>
+  </header>
+
+  <!-- SECCIÓN CV EN PANTALLA -->
+  <main class="max-w-4xl mx-auto my-8">
+    <div class="border-b border-gray-300 pb-6 mb-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-bold font-martian tracking-wide">IMANOL SALINERO SPITALE</h1>
+        <p class="text-lg text-gray-700 font-medium mt-1" data-key="cv_subtitle">PRODUCCIÓN AUDIOVISUAL & DISEÑO GRÁFICO</p>
+      </div>
+      <div class="mt-4 sm:mt-0 text-sm text-gray-600 space-y-1 text-center sm:text-right">
+        <p>Córdoba, Argentina</p>
+        <p><a href="mailto:imanolsalinero@gmail.com" class="hover:underline">imanolsalinero@gmail.com</a></p>
+        <p><a href="https://wa.me/543516074183" target="_blank" class="hover:underline">+54 351 6074183</a></p>
+      </div>
+    </div>
+
+    <!-- PERFIL PROFESIONAL -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold font-martian border-b border-black pb-1 mb-3" data-key="sec_profile">PERFIL PROFESIONAL</h2>
+      <p class="text-gray-800 leading-relaxed" data-key="profile_text">
+        Productor audiovisual con más de 10 años de experiencia en desarrollo, gestión y logística de proyectos de cine, videoclips y publicidad.
+        Especializado en jefatura de producción, coordinación de campo, gestión de locaciones y asistencia de producción para largometrajes, series de plataformas (Netflix, Amazon Prime), televisión y campañas publicitarias de alto impacto.
+      </p>
+    </section>
+
+    <!-- EXPERIENCIA CINE & SERIES -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold font-martian border-b border-black pb-1 mb-4" data-key="sec_exp_cine">EXPERIENCIA EN CINE Y TELEVISIÓN</h2>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between font-bold text-gray-900">
+            <span>Un Susurro Invocó mi Nombre <span class="font-normal text-gray-600">(2024)</span></span>
+            <span data-key="rol_jefe">Jefe de Producción</span>
+          </div>
+          <p class="text-sm text-gray-600">Dir: Emilia Cotella - John Mathis</p>
+        </div>
+
+        <div>
+          <div class="flex justify-between font-bold text-gray-900">
+            <span>La Cumbre <span class="font-normal text-gray-600">(2024)</span></span>
+            <span data-key="rol_jefe">Jefe de Producción</span>
+          </div>
+          <p class="text-sm text-gray-600">Dir: Leandro Naranjo - Santiago Zapata</p>
+        </div>
+
+        <div>
+          <div class="flex justify-between font-bold text-gray-900">
+            <span>Te amo tanto que escribí una película para nunca enojarme con vos <span class="font-normal text-gray-600">(2022)</span></span>
+            <span data-key="rol_locaciones">Jefe de Locaciones</span>
+          </div>
+          <p class="text-sm text-gray-600">Dir: Rosario González Leaniz - Alba Cravero</p>
+        </div>
+
+        <div>
+          <div class="flex justify-between font-bold text-gray-900">
+            <span>Jubilada y Peligrosa <span class="font-normal text-gray-600">(2026)</span></span>
+            <span data-key="rol_asistente">Asistente de Producción</span>
+          </div>
+          <p class="text-sm text-gray-600">Dir: Teo Ciampagna</p>
+        </div>
+
+        <div>
+          <div class="flex justify-between font-bold text-gray-900">
+            <span>Ciudades de Refugio <span class="font-normal text-gray-600">(2024)</span></span>
+            <span data-key="rol_asistente">Asistente de Producción</span>
+          </div>
+          <p class="text-sm text-gray-600">Dir: Rodrigo Fernández Engler</p>
+        </div>
+
+        <div>
+          <div class="flex justify-between font-bold text-gray-900">
+            <span>La Zurda <span class="font-normal text-gray-600">(2024)</span> / Norma <span class="font-normal text-gray-600">(2023)</span> / La Pulpera <span class="font-normal text-gray-600">(2023)</span> / El Casero <span class="font-normal text-gray-600">(2023)</span></span>
+            <span data-key="rol_ayudante">Ayudante de Producción</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex justify-between font-bold text-gray-900">
+            <span>Recursos Humanos <span class="font-normal text-gray-600">(2022)</span></span>
+            <span data-key="rol_meritorio">Meritorio de Producción</span>
+          </div>
+          <p class="text-sm text-gray-600">Dir: Jesús Magaña Vázquez</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMACIÓN Y ESTUDIOS -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold font-martian border-b border-black pb-1 mb-3" data-key="sec_edu">EDUCACIÓN Y FORMACIÓN</h2>
+      <div class="space-y-3">
+        <div>
+          <h3 class="font-bold text-gray-900" data-key="edu_unc_title">Tecnicatura en Producción en Medios Audiovisuales</h3>
+          <p class="text-sm text-gray-600">Universidad Nacional de Córdoba (UNC)</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900" data-key="edu_collegium_title">Formación Artística y Musical</h3>
+          <p class="text-sm text-gray-600">Collegium Córdoba</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTÓN OPCIONAL PARA DESCARGAR PDF -->
+    <div class="text-center pt-4 pb-8">
+      <a id="download-pdf-btn" href="CV - Imanol Salinero Spitale.pdf" target="_blank" class="inline-block bg-black text-white px-6 py-2 text-sm font-medium rounded hover:bg-gray-800 transition-colors" data-key="btn_download_pdf">
+        Descargar versión PDF
+      </a>
+    </div>
+  </main>
+
+  <hr class="border-t border-gray-300 my-8" />
+
+  <!-- FOOTER -->
+  <footer class="text-center mt-12 mb-8">
+    <h2 class="text-lg font-semibold mb-4" data-key="socials">Redes Sociales</h2>
+    <div class="flex justify-center space-x-6">
+      <a href="https://www.imdb.com/name/nm16288616/" target="_blank" title="IMDb"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/imdb.svg" alt="IMDb" class="w-8 h-8 hover:opacity-75"></a>
+      <a href="https://www.linkedin.com/in/imanol-salinero-spitale/" target="_blank" title="LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="w-8 h-8 hover:opacity-75"></a>
+      <a href="https://wa.me/543516074183" target="_blank" title="WhatsApp"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8 hover:opacity-75"></a>
+    </div>
+  </footer>
+
+  <script>
+    // DICCIONARIO TRADUCCIONES
+    const translations = {
+      es: {
+        nav_inicio: "inicio", nav_foto: "fotografía", nav_reel: "reel", nav_cv: "cv",
+        cv_subtitle: "PRODUCCIÓN AUDIOVISUAL & DISEÑO GRÁFICO",
+        sec_profile: "PERFIL PROFESIONAL",
+        profile_text: "Productor audiovisual con más de 10 años de experiencia en desarrollo, gestión y logística de proyectos de cine, videoclips y publicidad. Especializado en jefatura de producción, coordinación de campo, gestión de locaciones y asistencia de producción para largometrajes, series de plataformas (Netflix, Amazon Prime), televisión y campañas publicitarias de alto impacto.",
+        sec_exp_cine: "EXPERIENCIA EN CINE Y TELEVISIÓN",
+        sec_edu: "EDUCACIÓN Y FORMACIÓN",
+        edu_unc_title: "Tecnicatura en Producción en Medios Audiovisuales",
+        edu_collegium_title: "Formación Artística y Musical",
+        btn_download_pdf: "Descargar versión PDF",
+        socials: "Redes Sociales",
+        rol_jefe: "Jefe de Producción", rol_asistente: "Asistente de Producción", rol_ayudante: "Ayudante de Producción", rol_meritorio: "Meritorio de Producción", rol_locaciones: "Jefe de Locaciones"
+      },
+      en: {
+        nav_inicio: "home", nav_foto: "photography", nav_reel: "reel", nav_cv: "resume",
+        cv_subtitle: "AUDIOVISUAL PRODUCTION & GRAPHIC DESIGN",
+        sec_profile: "PROFESSIONAL PROFILE",
+        profile_text: "Audiovisual producer with over 10 years of experience in development, management, and logistics for film, music videos, and advertising projects. Specialized in production management, field coordination, location management, and production assistance for feature films, platform series (Netflix, Amazon Prime), TV, and high-impact ad campaigns.",
+        sec_exp_cine: "FILM & TELEVISION EXPERIENCE",
+        sec_edu: "EDUCATION & TRAINING",
+        edu_unc_title: "Associate Degree in Audiovisual Media Production",
+        edu_collegium_title: "Artistic and Musical Education",
+        btn_download_pdf: "Download PDF version",
+        socials: "Social Media",
+        rol_jefe: "Production Manager", rol_asistente: "Production Assistant", rol_ayudante: "Production Aide", rol_meritorio: "Production Intern", rol_locaciones: "Location Manager"
+      }
+    };
+
+    window.onload = () => {
+      const savedLang = localStorage.getItem('preferredLang') || 'es';
+      changeLanguage(savedLang);
+    };
+
+    function changeLanguage(lang) {
+      localStorage.setItem('preferredLang', lang);
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (translations[lang][key]) { el.innerText = translations[lang][key]; }
+      });
+
+      // Si querés mantener el botón de descargar PDF dinámico según el idioma
+      const pdfBtn = document.getElementById('download-pdf-btn');
+      if (pdfBtn) {
+        pdfBtn.href = lang === 'en' ? 'CV - Imanol Salinero Spitale - English.pdf' : 'CV - Imanol Salinero Spitale.pdf';
+      }
+
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang;
+    }
+  </script>
+</body>
+</html>
