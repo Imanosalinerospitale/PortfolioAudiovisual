@@ -32,7 +32,8 @@
       <a href="#inicio" class="hover:underline" data-key="nav_inicio">inicio</a>
       <a href="fotografias.html" class="hover:underline" data-key="nav_foto">fotografía</a>
       <a href="https://drive.google.com/file/d/1mj4kHYrMsSkVju7X1PdJfNrze0NyiQni/view?usp=sharing" target="_blank" class="hover:underline" data-key="nav_reel">reel</a>
-      <a href="cv.html" class="hover:underline" data-key="nav_cv">cv</a>    </nav>
+      <a href="cv.html" class="hover:underline" data-key="nav_cv">cv</a>
+    </nav>
     <div class="flex space-x-2 items-center border-l pl-4 border-gray-300">
       <button onclick="changeLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
       <span class="text-gray-300">|</span>
@@ -106,39 +107,42 @@
   </footer>
 
   <script>
-    // BASE DE DATOS DE PROYECTOS (CINE ORDENADO POR JERARQUÍA DE ROL)
+    // BASE DE DATOS DE PROYECTOS CINE (VERTICAL ASPECT 2/3)
     const proyectosCine = [
-      // 1. Jefe de Producción / Jefe de Locaciones
       { img: 'img/cine1.jpg', url: 'https://www.youtube.com/watch?v=9yp4tHdHjuE', titleKey: 'cine1_title', dir: 'Emilia Cotella - John Mathis', rolKey: 'rol_jefe' },
       { img: 'img/cine2.jpg', url: 'https://www.youtube.com/watch?v=KNXPRVad4uk', titleKey: 'cine2_title', dir: 'Leandro Naranjo - Santiago Zapata', rolKey: 'rol_jefe' },
       { img: 'img/cine4.jpg', url: 'https://vimeo.com/813717069', titleKey: 'peli_teamo', dir: 'Rosario Gonzáles Leaniz - Alba Cravero', rolKey: 'rol_locaciones' },
-      
-      // 2. Asistente de Producción
       { img: 'img/cine9.jpg', url: 'https://www.youtube.com/watch?v=8oDYkO-hI7c', titleKey: 'cine9_title', dir: 'Rodrigo Fernandez Engler', rolKey: 'rol_asistente' },
       { img: 'img/cine10.jpg', url: 'https://www.youtube.com/shorts/pu87xbq4GpM', titleKey: 'cine10_title', dir: 'Teo Ciampagna', rolKey: 'rol_asistente' },
-
-      // 3. Ayudante de Producción
       { img: 'img/cine3.jpg', url: 'https://www.youtube.com/watch?v=seLUU2iS0no', titleKey: 'cine3_title', dir: 'Rosendo Ruiz', rolKey: 'rol_ayudante' },
       { img: 'img/cine5.jpg', url: 'https://www.youtube.com/watch?v=Ofl9AecfSfQ', titleKey: 'cine5_title', dir: 'Santiago Giralt', rolKey: 'rol_ayudante' },
       { img: 'img/cine6.jpg', url: 'https://www.youtube.com/watch?v=rSmKl347Ktk', titleKey: 'cine6_title', dir: 'Mauricio Minotti', rolKey: 'rol_ayudante' },
       { img: 'img/cine8.jpg', url: 'https://www.youtube.com/watch?v=acCKexISlmk', titleKey: 'cine8_title', dir: 'Matías Luchessi', rolKey: 'rol_ayudante' },
-
-      // 4. Meritorio de Producción
       { img: 'img/cine7.jpg', url: 'https://www.youtube.com/watch?v=Vs8AX9dsOJE', titleKey: 'peli_recursos', dir: 'Jesús Magaña Vazquez', rolKey: 'rol_meritorio' }
     ];
 
+    // BASE DE DATOS PUBLICIDAD ORDENADA CRONOLÓGICAMENTE (2026 -> 2022)
     const proyectosPub = [
-      { img: 'img/publicidad1.jpg', url: 'https://www.youtube.com/watch?v=iX8aEeyzLhE', titleKey: 'pub1', dir: 'Martín Donozo', rolKey: 'rol_asist_loc' },
+      // 2026
+      { img: 'img/Publicidad11.jpg', url: 'https://www.instagram.com/reel/DEzB016Jp-T/', titleKey: 'pub11', dir: 'Lucas Rosas - Manuel Pons', rolKey: 'rol_asistente' },
+      { img: 'img/Publicidad10.jpg', url: 'https://www.instagram.com/p/DYDcg10p_DT/', titleKey: 'pub10', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
+      
+      // 2025
+      { img: 'img/Publicidad8.jpg', url: 'https://youtu.be/qM2MLvUrOfk', titleKey: 'pub8', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
+      { img: 'img/Publicidad9.jpg', url: 'https://youtu.be/DuFt5EWgwuw', titleKey: 'pub9', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
+      
+      // 2024
       { img: 'img/publicidad2.jpg', url: 'https://www.youtube.com/watch?v=hHJDDYw5cQI', titleKey: 'pub2', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
+      { img: 'img/Publicidad7.jpg', url: 'https://www.instagram.com/reel/DK-JYWORQNz/', titleKey: 'pub7', dir: 'Pablo Brusa', rolKey: 'rol_asistente' },
+      
+      // 2023
+      { img: 'img/publicidad1.jpg', url: 'https://www.youtube.com/watch?v=iX8aEeyzLhE', titleKey: 'pub1', dir: 'Martín Donozo', rolKey: 'rol_asist_loc' },
       { img: 'img/publicidad3.jpg', url: 'https://www.youtube.com/watch?v=LxxwDhlDJpU', titleKey: 'pub3', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
       { img: 'img/publicidad5.jpg', url: 'https://www.youtube.com/watch?v=bHZ30jQbIR0', titleKey: 'pub_urnas', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
       { img: 'img/publicidad6.jpg', url: 'https://www.youtube.com/watch?v=JVb8Vx4Qdj8', titleKey: 'pub_urnas', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
-      { img: 'img/publicidad4.jpg', url: 'https://www.youtube.com/watch?v=KPmWdH8Tnx8', titleKey: 'pub_verano', dir: 'Lucas Combina', rolKey: 'rol_asistente' },
-      { img: 'img/Publicidad7.jpg', url: 'https://www.instagram.com/reel/DK-JYWORQNz/', titleKey: 'pub7', dir: 'Pablo Brusa', rolKey: 'rol_asistente' },
-      { img: 'img/Publicidad8.jpg', url: 'https://youtu.be/qM2MLvUrOfk', titleKey: 'pub8', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
-      { img: 'img/Publicidad9.jpg', url: 'https://youtu.be/DuFt5EWgwuw', titleKey: 'pub9', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
-      { img: 'img/Publicidad10.jpg', url: 'https://www.instagram.com/p/DYDcg10p_DT/', titleKey: 'pub10', dir: 'Pablo Cecci', rolKey: 'rol_asistente' },
-      { img: 'img/Publicidad11.jpg', url: 'https://www.instagram.com/reel/DEzB016Jp-T/', titleKey: 'pub11', dir: 'Lucas Rosas - Manuel Pons', rolKey: 'rol_asistente' }
+      
+      // 2022
+      { img: 'img/publicidad4.jpg', url: 'https://www.youtube.com/watch?v=KPmWdH8Tnx8', titleKey: 'pub_verano', dir: 'Lucas Combina', rolKey: 'rol_asistente' }
     ];
 
     const proyectosVideo = [
@@ -170,8 +174,7 @@
       }
     };
 
-    // FUNCIÓN CREADORA DE TARJETAS QUE SOPORTA AMBOS ASPECT RATIOS
-    // 'aspect-[2/3]' para posters de cine y 'aspect-video' para publicidad/videoclips
+    // FUNCIÓN CREADORA DE TARJETAS
     function createCardHTML(item, aspectClass = 'aspect-video') {
       return `
         <a href="${item.url}" target="_blank" class="group block w-full">
@@ -197,7 +200,6 @@
         if (chunk.length === 4) {
           html += `<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">${chunk.map(item => createCardHTML(item, aspectClass)).join('')}</div>`;
         } else {
-          // Centrado dinámico si la última fila tiene menos de 4 tarjetas
           const colSpanClass = chunk.length === 1 ? 'w-full sm:w-1/2 md:w-1/4' : chunk.length === 2 ? 'w-full md:w-1/2' : 'w-full md:w-3/4';
           const gridColsClass = chunk.length === 1 ? 'grid-cols-1' : chunk.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3';
           
@@ -214,29 +216,21 @@
 
     // INICIALIZACIÓN
     window.onload = () => {
-      // Cine usa aspect-[2/3] vertical de afiche
       renderGridAuto(proyectosCine, 'grid-cine', 'aspect-[2/3]');
-      // Publicidad usa aspect-video horizontal (16:9)
       renderGridAuto(proyectosPub, 'grid-pub', 'aspect-video');
-      // Videoclips usa aspect-video horizontal (16:9)
       document.getElementById('grid-video').innerHTML = proyectosVideo.map(item => createCardHTML(item, 'aspect-video')).join('');
       
       const savedLang = localStorage.getItem('preferredLang') || 'es';
       changeLanguage(savedLang);
     };
 
-    // CAMBIO DE IDIOMA Y PDF DINÁMICO
+    // CAMBIO DE IDIOMA
     function changeLanguage(lang) {
       localStorage.setItem('preferredLang', lang);
       document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (translations[lang][key]) { el.innerText = translations[lang][key]; }
       });
-
-      const cvLink = document.getElementById('nav-cv-link');
-      if (cvLink) {
-        cvLink.href = cvLink.getAttribute(`data-pdf-${lang}`);
-      }
 
       document.getElementById('btn-es').classList.toggle('active', lang === 'es');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
